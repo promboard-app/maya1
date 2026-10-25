@@ -1,0 +1,148 @@
+{
+  "schema": 1,
+  "id": "promboard.maya1",
+  "version": "1.0.0",
+  "name": "Maya1 — 글로 목소리 설계 · 감정 태그 (영어)",
+  "description": "목소리를 영어 설명 글(성별 · 나이 · 억양 · 음높이 · 음색 · 말투)로 정하고 글을 읽어 목소리(WAV)를 만든다. 읽을 글 안에 <laugh> · <sigh> · <whisper> · <cry> 같은 감정 태그 17가지를 넣을 수 있다. 영어 전용이고 한국어 · 목소리 복제는 없다. 모델은 maya-research 공식 Maya1(3.3B, bf16 6.7GB)과 SNAC 24kHz 디코더를 허깅페이스에서 받는다. 그래픽카드가 필요하다. 모델은 Apache-2.0 이라 상업에도 쓸 수 있다.",
+  "author": "PromBoard",
+  "license": "Apache-2.0",
+  "app": ">=1.0.2",
+  "repository": "https://github.com/promboard-app/maya1",
+  "icon": "icon.png",
+  "contents": [
+    "nodes"
+  ],
+  "nodes": [
+    {
+      "id": "maya1",
+      "label": "Maya1 목소리",
+      "description": "읽을 글(영어)을 이으면 설정 '목소리 설명'대로 만든 목소리로 읽은 WAV(24kHz)를 낸다. 글 안에 <laugh> <laugh_harder> <sigh> <chuckle> <gasp> <angry> <excited> <whisper> <cry> <scream> <sing> <snort> <exhale> <gulp> <giggle> <sarcastic> <curious> 를 넣으면 그 자리에서 그렇게 읽는다. 긴 글은 문장마다 나눠 만들어 잇는다.",
+      "inputs": [
+        {
+          "id": "text",
+          "type": "text",
+          "label": "읽을 글 (영어, 감정 태그 가능)",
+          "required": true
+        }
+      ],
+      "outputs": [
+        {
+          "id": "audio",
+          "type": "audio",
+          "label": "목소리"
+        }
+      ],
+      "settings": [
+        {
+          "id": "description",
+          "label": "목소리 설명 (영어)",
+          "help": "성별 · 나이 · 억양 · 음높이 · 음색 · 말투를 영어로 적는다. 예: Realistic male voice in the 40s age with british accent. Low pitch, gravelly timbre, slow pacing.",
+          "type": "text",
+          "default": "Realistic female voice in the 30s age with american accent. Normal pitch, warm timbre, conversational pacing.",
+          "maxLength": 500,
+          "multiline": true
+        },
+        {
+          "id": "temperature",
+          "label": "다양성 (temperature)",
+          "help": "낮으면 안정적으로, 높으면 다채롭게 읽는다. 공식 예제는 0.4, 모델 기본 설정은 0.6 이다.",
+          "type": "number",
+          "default": 0.4,
+          "min": 0.1,
+          "max": 1,
+          "step": 0.05
+        }
+      ]
+    }
+  ],
+  "python": {
+    "version": "3.12",
+    "torch": "host",
+    "lock": {
+      "win": "nodes/requirements-win.txt",
+      "linux": "nodes/requirements-linux.txt",
+      "mac": "nodes/requirements-mac.txt"
+    },
+    "entry": "nodes.main"
+  },
+  "gpu": {
+    "vramMinMb": 9000,
+    "cpuAllowed": false
+  },
+  "permissions": {},
+  "requires": {
+    "models": [
+      {
+        "source": "huggingface",
+        "repo": "maya-research/maya1",
+        "revision": "b1b9b38ca9decbfcfd6c98ea93dd502bfd0f9572",
+        "license": "Apache-2.0",
+        "files": [
+          {
+            "path": "chat_template.jinja",
+            "bytes": 3827,
+            "sha256": "5816fce10444e03c2e9ee1ef8a4a1ea61ae7e69e438613f3b17b69d0426223a4"
+          },
+          {
+            "path": "config.json",
+            "bytes": 860,
+            "sha256": "2cfdde4a84cf7ac3654ea5cca50d782b987dfd2a942dc3a3101814e93228c92f"
+          },
+          {
+            "path": "generation_config.json",
+            "bytes": 228,
+            "sha256": "1373bcfcb512cf3230c6ffbce471d325a5ab4e28f168beff6179e449d3faece5"
+          },
+          {
+            "path": "model-00001-of-00002.safetensors",
+            "bytes": 4991160848,
+            "sha256": "f1dae409f70c5beb92916662c6bc389b9b235ac8aa5edd19a4dcb87e37a73074"
+          },
+          {
+            "path": "model-00002-of-00002.safetensors",
+            "bytes": 1610725592,
+            "sha256": "df22e9a90c1bea262250982640b119e6020474736991da482cb6ed56dd23d045"
+          },
+          {
+            "path": "model.safetensors.index.json",
+            "bytes": 20955,
+            "sha256": "0bfc1710ba5beb4fd518180e7a99aa154c13179043a66a69501827b91a6433cd"
+          },
+          {
+            "path": "special_tokens_map.json",
+            "bytes": 3333,
+            "sha256": "bebc5d683318466acb710f7ea1956bc1b88a3fa0c9fa515a4b35b912d8826935"
+          },
+          {
+            "path": "tokenizer.json",
+            "bytes": 22853258,
+            "sha256": "6c5e5b1d89b7e3738e5a5a4f93c326d8f3292ea83f9c560b8dbb6d66fb851973"
+          },
+          {
+            "path": "tokenizer_config.json",
+            "bytes": 5407227,
+            "sha256": "e188e557f86c2d1893e0bb973cd868a7420472ac4c6b7de1eed398612e3c7518"
+          }
+        ]
+      },
+      {
+        "source": "huggingface",
+        "repo": "hubertsiuzdak/snac_24khz",
+        "revision": "d73ad176a12188fcf4f360ba3bf2c2fbbe8f58ec",
+        "license": "MIT",
+        "files": [
+          {
+            "path": "config.json",
+            "bytes": 300,
+            "sha256": "e119b9366d4f5e73c6ca5f31137c4ff361578bbb132953a5203afe037c4012be"
+          },
+          {
+            "path": "pytorch_model.bin",
+            "bytes": 79488254,
+            "sha256": "4b8164cc6606bfa627f1a784734c1e539891518f1191ed9194fe1e3b9b4bff40"
+          }
+        ]
+      }
+    ]
+  }
+}

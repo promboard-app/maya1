@@ -1,0 +1,11 @@
+{"title": {"ko": "Maya1 · 영어 설명 글로 정한 목소리 두 가지", "en": "Maya1 · two voices designed from an English description"},
+ "items": [
+  {"wav": "female-us.wav", "name": "female-us", "label": {"ko": "“30대 여성 · 미국 억양 · 보통 음높이 · 따뜻한 음색 · 대화하듯” + <laugh>", "en": "“female, 30s, American accent, normal pitch, warm timbre, conversational” + <laugh>"},
+   "text": "The morning market opens at seven. <laugh> Fresh bread, ripe tomatoes and a basket of green apples wait on the wooden table, and the baker waves hello as the first customers arrive.",
+   "meta": {"ko": "12.5초 소리 · 첫 생성 69.2초", "en": "12.5 s of audio · first run 69.2 s"}},
+  {"wav": "male-uk.wav", "name": "male-uk", "label": {"ko": "“40대 남성 · 영국 억양 · 낮은 음 · 거친 음색 · 느리게”", "en": "“male, 40s, British accent, low pitch, gravelly timbre, slow pacing”"},
+   "text": "The morning market opens at seven. Fresh bread, ripe tomatoes and a basket of green apples wait on the wooden table, and the baker waves hello as the first customers arrive.",
+   "meta": {"ko": "13.1초 소리 · 25.0초 걸림", "en": "13.1 s of audio in 25.0 s"}}
+ ],
+ "footer": {"ko": "RTX 4070 SUPER 12GB · 다양성 0.4 · 그래픽카드 메모리 최대 7.7GB", "en": "RTX 4070 SUPER 12 GB · temperature 0.4 · peak GPU memory 7.7 GB"},
+ "out": "hero.png"}
