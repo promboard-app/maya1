@@ -124,7 +124,8 @@ def main():
         ax.set_ylabel("kHz")
         for s in ax.spines.values():
             s.set_visible(False)
-        ax.set_xlabel("초" if lang == "ko" else "s", loc="right", labelpad=1)
+        # 단위는 축 오른쪽 바깥에 — 마지막 눈금 숫자와 겹치지 않게
+        ax.text(1.006, 0, "초" if lang == "ko" else "s", transform=ax.transAxes, ha="left", va="center", color=MUTED, fontsize=12)
         y += 1.15 + 0.45
         if it.get("name"):  # 이름이 없으면 그림만(소리는 다른 그림이 이미 만든 것)
             to_mp3(os.path.join(base, it["wav"]), os.path.join(docs, lang, "audio", it["name"] + ".mp3"))

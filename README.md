@@ -36,7 +36,7 @@
 
 감정 태그 17가지(공식 `emotions.txt`): `<laugh>` `<laugh_harder>` `<sigh>` `<chuckle>` `<gasp>` `<angry>` `<excited>` `<whisper>` `<cry>` `<scream>` `<sing>` `<snort>` `<exhale>` `<gulp>` `<giggle>` `<sarcastic>` `<curious>`
 
-- 한 번에 6,000자까지 받습니다. 공식 카드가 긴 글은 알맞은 길이로 나눠 만들라고 해서, 문장 경계에서 280자 안쪽으로 나눠 같은 설명으로 차례로 만들고 0.15초 쉼을 두고 잇습니다. 복제가 없는 모델이라 조각 사이에 목소리가 조금 달라질 수 있습니다.
+- 한 번에 3,000자(약 3분 분량)까지 받습니다. 소리 길이의 두 배쯤 걸려서, 앱이 노드 한 번에 주는 시간(만들기 15분) 안에 끝나게 정했습니다. 공식 카드가 긴 글은 알맞은 길이로 나눠 만들라고 해서, 문장 경계에서 280자 안쪽으로 나눠 같은 설명으로 차례로 만들고 0.15초 쉼을 두고 잇습니다. 복제가 없는 모델이라 조각 사이에 목소리가 조금 달라질 수 있습니다.
 - 생성 설정은 공식 카드 예제 그대로입니다(top_p 0.9 · repetition_penalty 1.1 · 조각마다 최대 2,048 토큰).
 
 ## 실측
@@ -103,7 +103,7 @@ Measured peak 7.7 GB (memory reserved by PyTorch, plus about 0.4 GB for the GPU 
 
 Add the **Maya1 목소리** node, connect an English text node to **읽을 글** (text to read) and press ▷. Settings: **목소리 설명** (voice description, in English) and **다양성** (temperature; the official example uses 0.4, the model's generation config 0.6). The 17 emotion tags from the official `emotions.txt`: `<laugh>` `<laugh_harder>` `<sigh>` `<chuckle>` `<gasp>` `<angry>` `<excited>` `<whisper>` `<cry>` `<scream>` `<sing>` `<snort>` `<exhale>` `<gulp>` `<giggle>` `<sarcastic>` `<curious>`. The setting labels inside the app are in Korean for now (the plugin format takes one language).
 
-Up to 6,000 characters. The official card recommends generating long text in manageable passages, so the node splits at sentence boundaries into chunks of up to 280 characters, generates each with the same description and joins them with a 0.15 s pause. Without cloning, the voice can drift slightly between chunks. Sampling follows the official card example (top_p 0.9, repetition_penalty 1.1, up to 2,048 tokens per chunk).
+Up to 3,000 characters (about 3 minutes of audio): generation takes about twice the audio length, and a run has to finish within the time the app gives one node (15 minutes of generation). The official card recommends generating long text in manageable passages, so the node splits at sentence boundaries into chunks of up to 280 characters, generates each with the same description and joins them with a 0.15 s pause. Without cloning, the voice can drift slightly between chunks. Sampling follows the official card example (top_p 0.9, repetition_penalty 1.1, up to 2,048 tokens per chunk).
 
 ### Measured
 
