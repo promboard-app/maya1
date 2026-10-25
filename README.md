@@ -9,7 +9,7 @@
 목소리 설명 글만 바꿔 같은 글을 읽혔습니다. 위 글에는 `<laugh>` 태그를 넣었고, 그 자리(2~3초)는 말이 아닌 소리로 채워졌습니다(받아쓰기에 글자가 나오지 않음). 각 소리의 위 띠는 파형, 아래 띠는 스펙트로그램(가로 = 시간, 세로 = 소리 높낮이, 밝을수록 큰 소리)입니다. 듣기: [30대 미국 여성](docs/ko/audio/female-us.mp3?raw=true) · [40대 영국 남성](docs/ko/audio/male-uk.mp3?raw=true)
 
 - 플러그인 id: `promboard.maya1`
-- 필요한 앱: PromBoard 1.0.2 이상
+- 필요한 앱: PromBoard 1.0.3 이상
 - 지원 언어: 영어. **한국어는 없습니다**(공식 카드에 언어 목록이 없고 영어 예시만 있습니다). 목소리 복제도 없습니다.
 - 라이선스: 플러그인 코드 · 모델 Apache-2.0
 
@@ -83,7 +83,7 @@ README 그림 · 소리 다시 만들기: 노드 결과 WAV 를 hero.json 의 `w
 Only the voice description changed. The first text carries a `<laugh>` tag; that spot (2–3 s) is filled with a non-speech sound (no words in the transcription). For each sound the upper strip is the waveform and the lower strip is the spectrogram (time to the right, pitch upward, brighter = louder). Listen: [American woman, 30s](docs/en/audio/female-us.mp3?raw=true) · [British man, 40s](docs/en/audio/male-uk.mp3?raw=true)
 
 - Plugin id: `promboard.maya1`
-- Requires PromBoard 1.0.2 or later
+- Requires PromBoard 1.0.3 or later
 - Language: English. **No Korean** (the official card lists no languages and shows English examples only). No voice cloning.
 - License: plugin code and model Apache-2.0
 

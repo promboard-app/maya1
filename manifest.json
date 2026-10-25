@@ -1,12 +1,18 @@
 {
   "schema": 1,
   "id": "promboard.maya1",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Maya1 — 글로 목소리 설계 · 감정 태그 (영어)",
   "description": "목소리를 영어 설명 글(성별 · 나이 · 억양 · 음높이 · 음색 · 말투)로 정하고 글을 읽어 목소리(WAV)를 만든다. 읽을 글 안에 <laugh> · <sigh> · <whisper> · <cry> 같은 감정 태그 17가지를 넣을 수 있다. 영어 전용이고 한국어 · 목소리 복제는 없다. 모델은 maya-research 공식 Maya1(3.3B, bf16 6.7GB)과 SNAC 24kHz 디코더를 허깅페이스에서 받는다. 그래픽카드가 필요하다. 모델은 Apache-2.0 이라 상업에도 쓸 수 있다.",
   "author": "PromBoard",
   "license": "Apache-2.0",
-  "app": ">=1.0.2",
+  "app": ">=1.0.3",
+  "categories": [
+    "voice"
+  ],
+  "languages": [
+    "en"
+  ],
   "repository": "https://github.com/promboard-app/maya1",
   "icon": "icon.png",
   "contents": [
